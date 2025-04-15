@@ -26,12 +26,15 @@ public abstract class Hero {
     }
 
     public void attack(Hero enemy){
-        System.out.println(this.name + "attacking " + enemy.getName() + " with " + this.attackPower + " damage\n");
+        System.out.println(this.name + " attacking " + enemy.getName() + " with " + this.attackPower + " damage\n");
         enemy.takeDamage(attackPower);
     }
 
     public void takeDamage(double damage){
         System.out.println(this.name + " receiving " + damage + " damage\n");
         this.health = health - damage + this.defencePower;
+        display();
     }
+
+    public abstract void show();
 }
