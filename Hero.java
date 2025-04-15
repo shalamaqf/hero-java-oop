@@ -26,7 +26,7 @@ public abstract class Hero {
     }
 
     public void attack(Hero enemy){
-        System.out.println(this.name + "attacking " + enemy.getName() + " with " + this.attackPower " damage\n");
+        System.out.println(this.name + "attacking " + enemy.getName() + " with " + this.attackPower + " damage\n");
         enemy.takeDamage(attackPower);
     }
 
