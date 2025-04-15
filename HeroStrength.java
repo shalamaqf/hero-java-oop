@@ -3,8 +3,8 @@ public class HeroStrength extends Hero{
     private String heroType = "Strength";
     
     // constructor
-    HeroStrength(String name, double health){
-        super(name, health);
+    HeroStrength(String name, double health, double attackPower, double defencePower){
+        super(name, health, attackPower, defencePower);
     }
 
     public void display(){
