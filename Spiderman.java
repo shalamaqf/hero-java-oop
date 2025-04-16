@@ -1,4 +1,4 @@
-public class Spiderman extends Hero implements IAttackSKill{
+public class Spiderman extends Hero implements IAttackSKill, IAddPower{
     // attribute
     private String heroType = "Agility";
     
@@ -10,7 +10,7 @@ public class Spiderman extends Hero implements IAttackSKill{
     @Override
     public void display(){
         super.display();
-        System.out.println("Type : " + this.heroType + "\n");
+        System.out.println("Type : " + this.heroType);
     }
 
     @Override
@@ -20,9 +20,26 @@ public class Spiderman extends Hero implements IAttackSKill{
 
     @Override
     public void attackSkill(Hero enemy){
-        System.out.println(this.getName() + " attacking " + enemy.getName() + " with " + this.getSkill());
+        System.out.println("\n" + this.getName() + " attacking " + enemy.getName() + " with " + this.getSkill());
+        enemy.takeDamage(this.getAttackPower());
         addXp();
         levelUp(this.getXp());
-        enemy.takeDamage(this.getAttackPower());
     }
+
+    @Override
+    public void addPower(double power){
+        this.setAttackPower(this.getAttackPower() + 30);
+    }
+
+    // function for level up
+    public void levelUp(double xp){
+        if (this.getXp() >= this.getXpForLevelUp()){
+            this.setLevel(this.getLevel() + 1);
+            this.setXpForLevelUp(this.getXpForLevelUp() + this.getXpForLevelUp());
+            System.out.println("Congrats! " + this.getName() + " reaching level " + this.getLevel());
+
+            addPower(this.getXp());
+        }
+    }
+
 }

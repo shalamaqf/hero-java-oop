@@ -8,6 +8,7 @@ public abstract class Hero {
     private int level = 0;
     private double xp = 0;
     private double xpForLevelUp = 200;
+    private boolean isAlive = false;
 
     // constructor
     Hero(String name, double health, String skill, double attackPower, double defencePower){
@@ -43,6 +44,32 @@ public abstract class Hero {
         return this.xp;
     }
 
+    public double getXpForLevelUp(){
+        return this.xpForLevelUp;
+    }
+
+    public int getLevel(){
+        return this.level;
+    }
+
+    // setter
+    public void setAttackPower(double power){
+        this.attackPower = power;
+    }
+
+    public void setDefencePower(double power){
+        this.defencePower = power;
+    }
+
+    public void setLevel(int level){
+        this.level = level;
+    }
+
+    public void setXpForLevelUp(double addXpForLevelUp){
+        this.xpForLevelUp = addXpForLevelUp;
+    }
+
+
     ///////////////////////////////////////////////////////////////
     
     
@@ -52,22 +79,27 @@ public abstract class Hero {
         System.out.println(this.name + "'s experience add to " + this.xp);
     }
 
-    // function for level up
-    public void levelUp(double xp){
-        if (xp >= xpForLevelUp){
-            level += 1;
-            xpForLevelUp += 200;
-            System.out.println("Congrats! " + this.name + " reaching level " + this.level);
+    // function to check alive or dead
+    public void isAlive(){
+        if (this.health <= 0){
+            this.isAlive = true;
         }
     }
-
+    
     // function for receiving damage
     public void takeDamage(double damage){
         double getDamage = damage - this.defencePower;
-        System.out.println(this.name + " receiving " + getDamage + " damage\n");
+        System.out.println(this.name + " receiving " + getDamage + " damage");
         this.health = health - damage + this.defencePower;
-        display();
+        
+        if (!isAlive){
+            System.out.println(this.name + " is dead. . .");
+        }else{
+            display();
+        }
     }
 
     public abstract void show();
+    public abstract void levelUp(double xp);
+    
 }
