@@ -8,7 +8,7 @@ public abstract class Hero {
     private int level = 0;
     private double xp = 0;
     private double xpForLevelUp = 200;
-    private boolean isAlive = false;
+    private boolean isAlive = true;
 
     // constructor
     Hero(String name, double health, String skill, double attackPower, double defencePower){
@@ -80,10 +80,15 @@ public abstract class Hero {
     }
 
     // function to check alive or dead
-    public void isAlive(){
+    public boolean isDead(){
         if (this.health <= 0){
-            this.isAlive = true;
+            this.health = 0;
+            this.isAlive = false;
         }
+
+        return this.isAlive;
+
+
     }
     
     // function for receiving damage
@@ -92,12 +97,14 @@ public abstract class Hero {
         System.out.println(this.name + " receiving " + getDamage + " damage");
         this.health = health - damage + this.defencePower;
         
-        if (!isAlive){
+        if (!isDead()){
+            display();
             System.out.println(this.name + " is dead. . .");
         }else{
             display();
         }
     }
+        
 
     public abstract void show();
     public abstract void levelUp(double xp);
