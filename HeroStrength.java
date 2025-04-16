@@ -1,10 +1,10 @@
 public class HeroStrength extends Hero{
     // attribute
     private String heroType = "Strength";
-    
+
     // constructor
-    HeroStrength(String name, double health, double attackPower, double defencePower){
-        super(name, health, attackPower, defencePower);
+    HeroStrength(String name, double health, String skill, double attackPower, double defencePower){
+        super(name, health, skill, attackPower, defencePower);
     }
 
     @Override

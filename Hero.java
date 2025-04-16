@@ -2,13 +2,15 @@ public abstract class Hero {
     // attribute
     private String name;
     private double health;
+    private String skill;
     private double attackPower;
     private double defencePower;
 
     // constructor
-    Hero(String name, double health, double attackPower, double defencePower){
+    Hero(String name, double health, String skill, double attackPower, double defencePower){
         this.name = name;
         this.health = health;
+        this.skill = skill;
         this.attackPower = attackPower;
         this.defencePower = defencePower;
     }
@@ -23,11 +25,6 @@ public abstract class Hero {
     // getter
     public String getName(){
         return this.name;
-    }
-
-    public void attack(Hero enemy){
-        System.out.println(this.name + " attacking " + enemy.getName() + " with " + this.attackPower + " damage\n");
-        enemy.takeDamage(attackPower);
     }
 
     public void takeDamage(double damage){

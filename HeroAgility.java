@@ -3,8 +3,8 @@ public class HeroAgility extends Hero{
     private String heroType = "Agility";
     
     // constructor
-    HeroAgility(String name, double health, double attackPower, double defencePower){
-        super(name, health, attackPower, defencePower);
+    HeroAgility(String name, double health, String skill, double attackPower, double defencePower){
+        super(name, health, skill, attackPower, defencePower);
     }
 
     @Override
