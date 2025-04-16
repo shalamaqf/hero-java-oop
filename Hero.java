@@ -18,6 +18,7 @@ public abstract class Hero {
     public void display(){
         System.out.println("Name : " + this.name);
         System.out.println("Health : " + this.health);
+        System.out.println("Skill : " + this.skill);
         System.out.println("Power : " + this.attackPower);
         System.out.println("Defence : " + this.defencePower);
     }
@@ -25,6 +26,14 @@ public abstract class Hero {
     // getter
     public String getName(){
         return this.name;
+    }
+
+    public String getSkill(){
+        return this.skill;
+    }
+
+    public double getAttackPower(){
+        return attackPower;
     }
 
     public void takeDamage(double damage){
