@@ -1,9 +1,9 @@
-public class HeroAgility extends Hero implements IAttackSKill{
+public class IronMan extends Hero implements IAttackSKill{
     // attribute
-    private String heroType = "Agility";
-    
+    private String heroType = "Strength";
+
     // constructor
-    HeroAgility(String name, double health, String skill, double attackPower, double defencePower){
+    IronMan(String name, double health, String skill, double attackPower, double defencePower){
         super(name, health, skill, attackPower, defencePower);
     }
 
@@ -22,5 +22,6 @@ public class HeroAgility extends Hero implements IAttackSKill{
     public void attackSkill(Hero enemy){
         System.out.println(this.getName() + " attacking " + enemy.getName() + " with " + this.getSkill());
         enemy.takeDamage(this.getAttackPower());
+        addXp();
     }
 }

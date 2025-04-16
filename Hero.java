@@ -5,6 +5,9 @@ public abstract class Hero {
     private String skill;
     private double attackPower;
     private double defencePower;
+    private double level = 0;
+    private double xp = 0;
+    private double xpForLevelUp = xp;
 
     // constructor
     Hero(String name, double health, String skill, double attackPower, double defencePower){
@@ -19,8 +22,8 @@ public abstract class Hero {
         System.out.println("Name : " + this.name);
         System.out.println("Health : " + this.health);
         System.out.println("Skill : " + this.skill);
-        System.out.println("Power : " + this.attackPower);
-        System.out.println("Defence : " + this.defencePower);
+        System.out.println("Level : " + this.level);
+        System.out.println("Xp : " + this.xp);
     }
 
     // getter
@@ -36,6 +39,12 @@ public abstract class Hero {
         return attackPower;
     }
 
+    // function to add xp
+    public void addXp(){
+        this.xp += 100;
+    }
+
+    // function for receiving damage
     public void takeDamage(double damage){
         System.out.println(this.name + " receiving " + damage + " damage\n");
         this.health = health - damage + this.defencePower;
