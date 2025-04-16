@@ -5,9 +5,9 @@ public abstract class Hero {
     private String skill;
     private double attackPower;
     private double defencePower;
-    private double level = 0;
+    private int level = 0;
     private double xp = 0;
-    private double xpForLevelUp = xp;
+    private double xpForLevelUp = 200;
 
     // constructor
     Hero(String name, double health, String skill, double attackPower, double defencePower){
@@ -39,14 +39,32 @@ public abstract class Hero {
         return attackPower;
     }
 
+    public double getXp(){
+        return this.xp;
+    }
+
+    ///////////////////////////////////////////////////////////////
+    
+    
     // function to add xp
     public void addXp(){
         this.xp += 100;
+        System.out.println(this.name + "'s experience add to " + this.xp);
+    }
+
+    // function for level up
+    public void levelUp(double xp){
+        if (xp >= xpForLevelUp){
+            level += 1;
+            xpForLevelUp += 200;
+            System.out.println("Congrats! " + this.name + " reaching level " + this.level);
+        }
     }
 
     // function for receiving damage
     public void takeDamage(double damage){
-        System.out.println(this.name + " receiving " + damage + " damage\n");
+        double getDamage = damage - this.defencePower;
+        System.out.println(this.name + " receiving " + getDamage + " damage\n");
         this.health = health - damage + this.defencePower;
         display();
     }

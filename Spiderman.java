@@ -21,7 +21,8 @@ public class Spiderman extends Hero implements IAttackSKill{
     @Override
     public void attackSkill(Hero enemy){
         System.out.println(this.getName() + " attacking " + enemy.getName() + " with " + this.getSkill());
-        enemy.takeDamage(this.getAttackPower());
         addXp();
+        levelUp(this.getXp());
+        enemy.takeDamage(this.getAttackPower());
     }
 }
