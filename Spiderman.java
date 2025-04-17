@@ -7,6 +7,8 @@ public class Spiderman extends Hero implements IAttackSKill, IAddPower{
         super(name, health, skill, attackPower, defencePower);
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @Override
     public void display(){
         super.display();

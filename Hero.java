@@ -19,13 +19,7 @@ public abstract class Hero {
         this.defencePower = defencePower;
     }
 
-    public void display(){
-        System.out.println("Name : " + this.name);
-        System.out.println("Health : " + this.health);
-        System.out.println("Skill : " + this.skill);
-        System.out.println("Level : " + this.level);
-        System.out.println("Xp : " + this.xp);
-    }
+    ///////////////////////////////////////////////////////////////
 
     // getter
     public String getName(){
@@ -52,6 +46,8 @@ public abstract class Hero {
         return this.level;
     }
 
+    /////////////////////////////////////////////////////////////
+
     // setter
     public void setAttackPower(double power){
         this.attackPower = power;
@@ -71,7 +67,15 @@ public abstract class Hero {
 
 
     ///////////////////////////////////////////////////////////////
-    
+
+    // function to display hero's attribute
+    public void display(){
+        System.out.println("Name : " + this.name);
+        System.out.println("Health : " + this.health);
+        System.out.println("Skill : " + this.skill);
+        System.out.println("Level : " + this.level);
+        System.out.println("Xp : " + this.xp);
+    }
     
     // function to add xp
     public void addXp(){
@@ -87,8 +91,6 @@ public abstract class Hero {
         }
 
         return this.isAlive;
-
-
     }
     
     // function for receiving damage
@@ -105,7 +107,7 @@ public abstract class Hero {
         }
     }
         
-
+    // abstract method
     public abstract void show();
     public abstract void levelUp(double xp);
     
