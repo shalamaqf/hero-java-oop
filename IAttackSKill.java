@@ -1,3 +1,3 @@
 interface IAttackSKill {
-    void attackSkill(Hero enemy);
+    public void attackSkill(Hero enemy);
 }

@@ -43,5 +43,4 @@ public class Spiderman extends Hero implements IAttackSKill, IAddPower{
             addPower(this.getXp());
         }
     }
-
 }

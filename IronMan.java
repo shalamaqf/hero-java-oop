@@ -44,5 +44,4 @@ public class IronMan extends Hero implements IAttackSKill, IAddPower{
             
         }
     }
-
 }
